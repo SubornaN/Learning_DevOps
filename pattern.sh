@@ -14,6 +14,7 @@ declare -i num=1 # creating a integer variable
 while [[ $num -le $input ]]
 do 
 list+=$num # apppend the value to the array
+list+=" "
 echo ${list[*]}
 num+=1
 # echo $num
