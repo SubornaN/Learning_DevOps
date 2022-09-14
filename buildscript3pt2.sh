@@ -207,7 +207,8 @@ if [[ $response3 == [Yy] ]]
 then
 echo "Pushing the changes to GitHub..."
 echo "______________________________________________"
-git push origin "$(git branch --show-current)"
+# origin "$(git branch --show-current)"
+git push 
 # If response is no -> we exit the script
 else
 echo "Changes were NOT pushed to Github!"
@@ -221,6 +222,7 @@ echo "______________________________________________"
 echo "All the changes were pushed to github. Exiting now!"
 echo "______________________________________________"
 else
+echo ""
 echo "Something went wrong!"
 fi
 
