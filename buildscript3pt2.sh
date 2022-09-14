@@ -86,13 +86,14 @@ status=$(git status -s | rev | cut -d " " -f 1 | rev)
 if [[ -z $status ]] 
 then echo "You have NOT made any changes to your file(s)."
 echo "______________________________________________"
-git status
+# git status
 exit 0
 # If git status has pending files -> triggers if statement on line 117
 else
-git status
+# git status
 echo "______________________________________________"
-echo "You have made changes to these files -->" $status
+echo "You have made changes to these files -->" 
+echo $status
 echo "______________________________________________"
 fi
 
@@ -119,8 +120,8 @@ then
 # This is a nested for loop. We are looping through each file that needs to be commited
 # For every file, we are checking 4 patterns on line 107-110
 # If there is a match, we let the user know & exit the script
-    for file in "$list"
-    do
+   for file in $list
+   do
 # We are looping each pattern 
         for ((i=1; i<5; i++))
         do
@@ -137,7 +138,7 @@ then
         unset $patternVar # deleting the variable for next loop
 # If there is a match -> else will trigger & exit the script
         else
-        echo -e "> $file contains sensitive information. \n Please edit the file and delete the info before commiting."
+        echo -e "> $file contains sensitive information.\nPlease edit the file and delete the info before commiting."
         exit 1
         fi 
         done
