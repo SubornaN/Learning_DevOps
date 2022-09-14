@@ -5,7 +5,6 @@
 # Description - read input from the user and create a pattern as 1 23 456 ...n
 # n = user input
 
-
 read -p  "Enter a number --> " input
 
 declare -a list # creating an array to save all values from 1 to input
@@ -19,6 +18,9 @@ done
 
 echo "Array:" ${list[@]:1:$input} # printing the array
 echo "length of Array:" ${#list[@]} # printing the length of array
+echo ""
+
+sleep 5
 
 declare -i index=1 # index value to use for every iteration 
 declare -i element=1 # number of elements to collect every iteration
