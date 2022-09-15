@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Author - Suborna Nath
+# Date - September 15, 2022
+# Description - This script will be run inside buildscript4.py
+
+
 # greeting the user
 echo "Welcome to the weather station!"
 # prompting the user to decide what data to collect -> forecast or historical
@@ -17,7 +22,7 @@ read -p "Number of days for forecast (max 7) >> " days
 read -p "Type in the Zipcode or City >> " location
 
 # saving user inputs in a file to use in the GET request
-echo -e "$response\n$days\n$location" > ./params.txt # the file will be saved where you run the script
+echo -e "$response\n$days\n$location" > ./config.txt # the file will be saved where you run the script
 
 elif [[ $response == 2 ]]
 then
@@ -28,8 +33,9 @@ read -p "Enter the End Date [yyyy-mm-dd] >> " end
 read -p "Enter the Zipcode or City >> " location
 
 # saving user inputs in a file to use in the GET request
-echo -e "$response\n$start\n$end\n$location" > ./params.txt
+echo -e "$response\n$start\n$end\n$location" > ./config.txt
 
 else
 echo "Invalid Response. Please try again! Exiting the script."
+exit 1
 fi
