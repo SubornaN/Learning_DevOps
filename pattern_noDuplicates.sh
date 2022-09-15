@@ -2,8 +2,7 @@
 
 # Author - Suborna Nath
 # Date - September 12, 2022
-# Description - read input from the user and create a pattern as 1 23 456 ...n
-# n = user input
+# Description - read input from the user and create a pattern as 1 23 456 ...n [n = user input]
 
 # getting input from the user
 read -p  "Enter a number --> " input
@@ -17,16 +16,17 @@ list[$i]=$i
 i+=1
 done
 
-echo "Array:" ${list[@]:1:$input} # printing the array
-echo "length of array:" ${#list[@]} # printing the length of array
-echo "" # adding a space
+# echo "Array:" ${list[@]:1:$input} # printing the array
+# echo "length of array:" ${#list[@]} # printing the length of array
+# echo "" # adding a space
 
-sleep 5 # pausing for 5 sec
+# sleep 3 # pausing for 5 sec
 
 declare -i index=1 # index value to use for every iteration 
 declare -i element=1 # number of elements to collect every iteration
 
 # Until the index is equal to or less than the input, we will continue the loop
+# index increment is changing every loop by 1
 while [[ $index -le $input ]]
 do
 echo ${list[@]:$index:$element} # slicing the array and printing
