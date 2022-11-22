@@ -1,12 +1,18 @@
+# Author - Suborna Nath
+# Date - October 13, 2022
+##### Description ####
+# Create a class to simulate a bank and an ATM. It should have a method to open an account, set/verify pin,
+# withdraw, deposit, transfer between accounts, show transaction history.
+
 class BankAccount:
   nums = 1000 # class variable to keep track of accounts created
 
-  # created init method to create the object. It will take 2 arguements
+# created init method to create the object. It will take 2 arguements
   def __init__(self, name, balance): 
     self.name = name
     self.balance = balance
 
-    # creating an account when initializing an object
+# creating an account when initializing an object
     print("\n--Create an account--")
     self.pin = input("Enter your new pin: ")
     self.accountNum = BankAccount.nums
@@ -15,7 +21,7 @@ class BankAccount:
     print("\nThank you for opening a new account!")
     print(f"Account Name: {self.name} | Account #{self.accountNum} | Account Balance: ${self.balance}")
   
-  # this method will check if pin is correct
+# this method will check if pin is correct
   def verify_pin(self):
     userPin = input("Enter the pin --> ")
 
@@ -26,7 +32,7 @@ class BankAccount:
       print("You entered a correct pin.")
       return True
 
-  # this method will take out money from the account
+# this method will take out money from the account
   def withdrawal(self):
     print("\n--Withdrawal--")
     withdraw = int(input("Enter the amount --> "))
@@ -39,7 +45,7 @@ class BankAccount:
       else:
         print("You don't have enough money in your account.")
 
-  # this method will add money to the account 
+# this method will add money to the account 
   def deposit(self):
     print("\n--Deposit--")
     deposit = int(input("Enter the amount --> "))
@@ -49,7 +55,7 @@ class BankAccount:
       self.transactions.append({"deposit": deposit})
       print(f"You deposited ${deposit} to account #{self.accountNum}. Your new balance is ${self.balance}")
 
-  # this method will transfer money between 2 accounts. It takes 2nd account as an arguement.
+# this method will transfer money between 2 accounts. It takes 2nd account as an arguement.
   def transfer(self, toAccnt):
     print("\n--Transfer--")
     amount = int(input("Enter the amount --> "))
@@ -64,7 +70,7 @@ class BankAccount:
       else:
         print(f"The transfer for amount ${amount} was unsuccessful. {toAccnt.accountNum} has insufficient balance!!")
   
-  # this method will print transactions of the account
+# this method will print transactions of the account
   def transaction_history(self): 
     
     if self.verify_pin() == True:
@@ -73,7 +79,7 @@ class BankAccount:
       for i in self.transactions:
         print(i)
   
-  # this method will simulate an ATM and can withdraw and deposit money to the account
+# this method will simulate an ATM and can withdraw and deposit money to the account
   def runATM(self):
     print("\nWelcome! How can I assist you?")
     
